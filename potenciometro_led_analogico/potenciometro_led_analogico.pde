@@ -15,6 +15,6 @@ void loop() {
   valorPot = analogRead(potPin);      
   valorMapeadoPot = map(valorPot, 0, 1023, 0, 255);
   analogWrite(ledPin, valorMapeadoPot); 
-  //Serial.print("mapeado: ");           
-  //Serial.println(valorPot, DEC);  
+  Serial.print("mapeado: ");           
+  Serial.println(valorPot, DEC);  
 }

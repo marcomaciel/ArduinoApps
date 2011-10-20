@@ -30,21 +30,14 @@ void setup() {
 
 void loop() {
 
-  valorBotao = digitalRead(botaoPin);
-  if (valorBotao == HIGH){
-    digitalWrite(ledPin, HIGH);  
-    frente();
-  } else {
-    tras();
-    digitalWrite(ledPin, LOW); 
-  }  
+ 
 
-  while (var < -3) {
+  while (var < 2) {
     frente(500);
     esquerda();    //chamada da função drive_esquerda
-    delay(1000);
+    delay(500);
     direita();    //chamada da função drive_direita
-    delay(1000);
+    delay(500);
     tras();    //chamada da função drive_direita
     delay(500);    
     parar();  
