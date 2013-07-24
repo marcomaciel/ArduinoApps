@@ -1,5 +1,7 @@
 int pinBuzzer = 6; 
-int pinLed = 13; 
+int pinSirene = 13;
+int tempo = 500;
+int toques = 3;
 int serialIn;
  
 void setup() 
@@ -14,34 +16,23 @@ void loop()
     while (Serial.available()>0) {
       serialIn = Serial.read();
       Serial.print(serialIn);
-      //delay(0);
     }
     if (serialIn == '1'){
       toca();
     } else {
-      digitalWrite(pinBuzzer, LOW);      
+      digitalWrite(pinBuzzer, LOW);  
+      digitalWrite(pinSirene, LOW);     
     }
   }  
 } 
 
 void toca(){
-  
-  digitalWrite(pinBuzzer, HIGH);
-  digitalWrite(pinLed, HIGH);
-  delay(500);
-  digitalWrite(pinBuzzer, LOW);
-  digitalWrite(pinLed, LOW);
-  delay(500);
-  digitalWrite(pinBuzzer, HIGH);
-  digitalWrite(pinLed, HIGH);
-  delay(500);
-  digitalWrite(pinBuzzer, LOW);
-  digitalWrite(pinLed, LOW);
-  delay(500);
-  digitalWrite(pinBuzzer, HIGH);
-  digitalWrite(pinLed, HIGH);
-  delay(500);
-  digitalWrite(pinBuzzer, LOW);
-  digitalWrite(pinLed, LOW);
+  for (int i = 0; i <= toques; i++){
+    digitalWrite(pinBuzzer, HIGH);
+    digitalWrite(pinSirene, HIGH);
+    delay(tempo);
+    digitalWrite(pinBuzzer, LOW);
+    digitalWrite(pinSirene, LOW);
+    delay(tempo);
+  }
 }
-
